@@ -1,29 +1,15 @@
 import Link from "next/link";
-import { Code2, Mail, ExternalLink } from "lucide-react";
 import { ShapeCircle, ShapeSquare } from "@/components/ui/shapes";
 import Image from "next/image";
 
-const FOOTER_LINKS = [
-  {
-    heading: "Navigate",
-    links: [
-      { href: "#hero", label: "Home" },
-      { href: "#skills", label: "Skills" },
-      { href: "#projects", label: "Projects" },
-      { href: "#currently", label: "Currently" },
-      { href: "#contact", label: "Contact" },
-    ],
-  },
-  {
-    heading: "Current Focus",
-    links: [
-      { href: "#", label: "Planex" },
-      { href: "#", label: "Docker" },
-      { href: "#", label: "System Design" },
-      { href: "#", label: "DSA in C++" },
-    ],
-  },
+const FOOTER_NAV = [
+  { href: "#hero", label: "Home" },
+  { href: "#skills", label: "Skills" },
+  { href: "#projects", label: "Projects" },
+  { href: "#currently", label: "Currently" },
 ];
+
+const CURRENT_FOCUS = ["Planex", "Docker", "System Design", "DSA in C++"];
 
 export function SiteFooter() {
   return (
@@ -58,53 +44,38 @@ export function SiteFooter() {
             <p className="mt-3 text-background/60 italic">
               Still learning. Still building. Still shipping.
             </p>
-            <div className="mt-6 flex gap-3">
-              <a
-                href="https://github.com/YOUR_USERNAME"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex h-11 w-11 items-center justify-center rounded-full border-2 border-background hover:bg-accent hover:border-accent transition-colors"
-              >
-                <Code2 size={18} />
-              </a>
-
-              <a
-                href="https://linkedin.com/in/YOUR_LINKEDIN"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex h-11 w-11 items-center justify-center rounded-full border-2 border-background hover:bg-accent hover:border-accent transition-colors"
-              >
-                <Code2 size={18} />
-              </a>
-
-              <a
-                href="mailto:YOUR_EMAIL"
-                className="flex h-11 w-11 items-center justify-center rounded-full border-2 border-background hover:bg-accent hover:border-accent transition-colors"
-              >
-                <Mail size={18} />
-              </a>
-            </div>
           </div>
 
-          {FOOTER_LINKS.map((group) => (
-            <div key={group.heading}>
-              <h3 className="font-bold uppercase tracking-wide text-sm text-tertiary">
-                {group.heading}
-              </h3>
-              <ul className="mt-4 space-y-3">
-                {group.links.map((link) => (
-                  <li key={link.label}>
-                    <Link
-                      href={link.href}
-                      className="text-background/80 hover:text-background transition-colors focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-ring/40 rounded"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          <div>
+            <h3 className="font-bold uppercase tracking-wide text-sm text-tertiary">
+              Navigate
+            </h3>
+            <ul className="mt-4 space-y-3">
+              {FOOTER_NAV.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    className="text-background/80 hover:text-background transition-colors focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-ring/40 rounded"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="font-bold uppercase tracking-wide text-sm text-tertiary">
+              Current Focus
+            </h3>
+            <ul className="mt-4 space-y-3">
+              {CURRENT_FOCUS.map((item) => (
+                <li key={item} className="text-background/80">
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
 
         <div className="mt-12 border-t border-background/20 pt-6 text-sm text-background/60">
@@ -115,3 +86,4 @@ export function SiteFooter() {
     </footer>
   );
 }
+

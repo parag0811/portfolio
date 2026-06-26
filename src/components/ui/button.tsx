@@ -19,6 +19,8 @@ type ButtonAsButton = CommonProps &
 
 type ButtonAsLink = CommonProps & {
   href: string;
+  target?: string;
+  rel?: string;
 };
 
 type Props = ButtonAsButton | ButtonAsLink;
@@ -65,6 +67,14 @@ export function Button({
 
   if ("href" in props && props.href) {
     const { href, ...rest } = props;
+    const isExternal = href.startsWith("mailto:") || href.startsWith("http") || href.startsWith("#");
+    if (isExternal) {
+      return (
+        <a href={href} className={classes} {...rest}>
+          {content}
+        </a>
+      );
+    }
     return (
       <Link href={href} className={classes} {...rest}>
         {content}

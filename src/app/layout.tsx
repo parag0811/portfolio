@@ -17,9 +17,9 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Snippy — Craft Kits That Spark Joy",
+  title: "Parag Rangankar | Full Stack Developer",
   description:
-    "Monthly craft kits packed with playful projects, googly eyes, and just the right amount of glitter. Built for curious hands of every age.",
+    "Portfolio of Parag Rangankar, a Full Stack Developer focused on building modern web applications, solving problems with code, and creating experiences people enjoy using.",
 };
 
 export default function RootLayout({

@@ -1,7 +1,10 @@
+"use client";
+
 import { ArrowRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { ShapeSquiggle } from "@/components/ui/shapes";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 type MlProject = {
   title: string;
@@ -73,9 +76,13 @@ export function MlProjects() {
 
         {/* Project cards */}
         <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {ML_PROJECTS.map((project) => (
-            <a
+          {ML_PROJECTS.map((project, i) => (
+            <motion.a
               key={project.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
               href={project.href}
               target="_blank"
               rel="noopener noreferrer"
@@ -118,7 +125,7 @@ export function MlProjects() {
                   className="transition-transform duration-300 ease-[var(--ease-bounce)] group-hover:translate-x-1"
                 />
               </span>
-            </a>
+            </motion.a>
           ))}
         </div>
       </div>

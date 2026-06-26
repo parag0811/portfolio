@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Plus, Download, Mail } from "lucide-react";
 import { SectionHeading } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 
 const CURRENTLY = [
   {
@@ -48,8 +49,12 @@ export function Currently() {
           {CURRENTLY.map((currently, index) => {
             const isOpen = openIndex === index;
             return (
-              <div
+              <motion.div
                 key={currently.question}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="border-2 border-foreground rounded-[var(--radius-md)] bg-card overflow-hidden"
               >
                 <button
@@ -73,13 +78,19 @@ export function Currently() {
                     {currently.answer}
                   </div>
                 )}
-              </div>
+              </motion.div>
             );
           })}
         </div>
 
         {/* CTA card */}
-        <div className="relative mt-16 overflow-hidden rounded-[var(--radius-lg)] border-2 border-foreground bg-accent px-6 sm:px-12 py-12 sm:py-16 text-center shadow-[var(--shadow-pop)]">
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.5 }}
+          className="relative mt-16 overflow-hidden rounded-[var(--radius-lg)] border-2 border-foreground bg-accent px-6 sm:px-12 py-12 sm:py-16 text-center shadow-[var(--shadow-pop)]"
+        >
           <h2 className="relative z-10 text-3xl sm:text-4xl font-extrabold tracking-tight text-accent-foreground">
             Let&apos;s build something great together.
           </h2>
@@ -92,7 +103,9 @@ export function Currently() {
 
           <div className="relative z-10 mt-8 flex flex-col sm:flex-row justify-center gap-4">
             <Button
-              href="#contact"
+              href="https://mail.google.com/mail/?view=cm&to=paragrangankar@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
               withArrow={false}
               className="bg-tertiary text-foreground"
             >
@@ -103,7 +116,7 @@ export function Currently() {
             </Button>
 
             <a
-              href="/resume.pdf"
+              href="/parag_rangankar_cv.pdf"
               download
               className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-foreground bg-card px-6 py-3 font-bold text-foreground hover:bg-tertiary transition-colors focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-ring/40"
             >
@@ -111,7 +124,7 @@ export function Currently() {
               Download Resume
             </a>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

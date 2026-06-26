@@ -1,6 +1,9 @@
+"use client";
+
 import { Monitor, Server, Cloud, Brain, GraduationCap, LucideIcon } from "lucide-react";
 import { SectionHeading } from "@/components/ui/badge";
 import { CardIcon, StickerCard } from "@/components/ui/sticker-card";
+import { motion } from "framer-motion";
 
 type SkillCard = {
   icon: LucideIcon;
@@ -9,7 +12,7 @@ type SkillCard = {
   skills: string[];
 };
 
-const SKILLS : SkillCard[] = [
+const SKILLS: SkillCard[] = [
   {
     icon: Monitor,
     color: "accent" as const,
@@ -94,8 +97,15 @@ export function Features() {
         </div>
 
         <div className="mt-16 lg:mt-[-2rem] grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8 cursor-pointer">
-          {SKILLS.map((skill) => (
-            <StickerCard key={skill.title} className="pt-10">
+          {SKILLS.map((skill, i) => (
+            <motion.div
+              key={skill.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+            >
+              <StickerCard className="pt-10">
               <CardIcon icon={skill.icon} color={skill.color} />
 
               <h3 className="text-xl font-extrabold">{skill.title}</h3>
@@ -111,6 +121,7 @@ export function Features() {
                 ))}
               </div>
             </StickerCard>
+            </motion.div>
           ))}
         </div>
       </div>

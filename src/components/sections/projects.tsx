@@ -1,6 +1,9 @@
+"use client";
+
 import { ExternalLink, Code2, Wrench } from "lucide-react";
 import { SectionHeading } from "@/components/ui/badge";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 type Project = {
   name: string;
@@ -75,9 +78,13 @@ export function Projects() {
         />
 
         <div className="mt-16 grid gap-10 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
-          {PROJECTS.map((project) => (
-            <div
+          {PROJECTS.map((project, i) => (
+            <motion.div
               key={project.name}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
               className={[
                 "bg-card border-2 border-foreground rounded-[var(--radius-lg)] p-3",
                 "transition-all duration-300 ease-[var(--ease-bounce)]",
@@ -148,7 +155,7 @@ export function Projects() {
                   </a>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

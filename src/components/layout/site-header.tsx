@@ -11,7 +11,8 @@ const NAV_LINKS = [
   { href: "#skills", label: "Skills" },
   { href: "#projects", label: "Projects" },
   { href: "#currently", label: "Currently" },
-  { href: "/contact", label: "Contact" },
+  { href: "https://github.com/parag0811", label: "GitHub", isExternal: true },
+  { href: "https://www.linkedin.com/in/parag0811/", label: "LinkedIn", isExternal: true },
 ];
 
 export function SiteHeader() {
@@ -37,19 +38,31 @@ export function SiteHeader() {
 
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-8">
-          {NAV_LINKS.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="font-medium hover:text-accent transition-colors focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-ring/40 rounded-lg"
-            >
-              {link.label}
-            </Link>
-          ))}
+          {NAV_LINKS.map((link) =>
+            link.isExternal ? (
+              <a
+                key={link.href}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium hover:text-accent transition-colors focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-ring/40 rounded-lg"
+              >
+                {link.label}
+              </a>
+            ) : (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="font-medium hover:text-accent transition-colors focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-ring/40 rounded-lg"
+              >
+                {link.label}
+              </Link>
+            )
+          )}
         </nav>
 
         <div className="hidden md:block">
-          <Button href="/contact" withArrow={false}>
+          <Button href="https://mail.google.com/mail/?view=cm&to=paragrangankar@gmail.com" target="_blank" rel="noopener noreferrer" withArrow={false}>
             Hire Me!!!
           </Button>
         </div>
@@ -73,18 +86,31 @@ export function SiteHeader() {
       {/* Mobile nav */}
       {open && (
         <nav className="md:hidden border-t-2 border-foreground bg-background px-4 sm:px-6 py-4 flex flex-col gap-4">
-          {NAV_LINKS.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              onClick={() => setOpen(false)}
-              className="font-medium text-lg focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-ring/40 rounded-lg"
-            >
-              {link.label}
-            </Link>
-          ))}
-          <Button href="/contact" withArrow={false} className="mt-2 w-full">
-            Get a kit
+          {NAV_LINKS.map((link) =>
+            link.isExternal ? (
+              <a
+                key={link.href}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setOpen(false)}
+                className="font-medium text-lg focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-ring/40 rounded-lg"
+              >
+                {link.label}
+              </a>
+            ) : (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setOpen(false)}
+                className="font-medium text-lg focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-ring/40 rounded-lg"
+              >
+                {link.label}
+              </Link>
+            )
+          )}
+          <Button href="https://mail.google.com/mail/?view=cm&to=paragrangankar@gmail.com" target="_blank" rel="noopener noreferrer" withArrow={false} className="mt-2 w-full">
+            Hire Me!!!
           </Button>
         </nav>
       )}
