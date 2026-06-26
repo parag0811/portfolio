@@ -1,4 +1,4 @@
-import { Monitor, Server, Cloud, Brain, LucideIcon } from "lucide-react";
+import { Monitor, Server, Cloud, Brain, GraduationCap, LucideIcon } from "lucide-react";
 import { SectionHeading } from "@/components/ui/badge";
 import { CardIcon, StickerCard } from "@/components/ui/sticker-card";
 
@@ -44,17 +44,15 @@ const SKILLS : SkillCard[] = [
     skills: ["Git", "GitHub", "Docker", "AWS S3", "Postman", "Linux"],
   },
   {
-    icon: Brain,
-    color: "tertiary",
-    title: "DSA & Problem Solving",
+    icon: GraduationCap,
+    color: "quaternary",
+    title: "CS Fundamentals",
     skills: [
-      "C++",
-      "Data Structures",
-      "Algorithms",
-      "Dynamic Programming",
-      "Graphs",
-      "Trees",
-      "STL",
+      "DSA",
+      "Operating System",
+      "DBMS",
+      "Computer Networks",
+      "System Design",
     ],
   },
 ];
@@ -62,7 +60,7 @@ const SKILLS : SkillCard[] = [
 export function Features() {
   return (
     <section
-      id="features"
+      id="skills"
       className="relative border-b-2 border-foreground py-20 sm:py-24"
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6">

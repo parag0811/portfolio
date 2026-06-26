@@ -1,4 +1,4 @@
-import { Sparkles, Star } from "lucide-react";
+import { Sparkles } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import {
@@ -9,7 +9,7 @@ import {
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden border-b-2 border-foreground bg-dot-grid">
+    <section id="hero" className="relative overflow-hidden border-b-2 border-foreground bg-dot-grid">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 py-20 sm:py-28">
         <div className="grid items-center gap-12 lg:grid-cols-2">
           {/* Text column */}
@@ -50,34 +50,7 @@ export function Hero() {
               </Button>
             </div>
 
-            <div className="mt-10 flex items-center gap-4">
-              <div className="flex -space-x-3">
-                {[
-                  "bg-secondary",
-                  "bg-tertiary",
-                  "bg-quaternary",
-                  "bg-accent",
-                ].map((c, i) => (
-                  <div
-                    key={i}
-                    className={`h-10 w-10 rounded-full border-2 border-foreground ${c}`}
-                  />
-                ))}
-              </div>
-              <div className="text-sm">
-                <div className="flex items-center gap-1 font-bold">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star
-                      key={i}
-                      size={14}
-                      strokeWidth={2.5}
-                      className="fill-tertiary text-foreground"
-                    />
-                  ))}
-                </div>
-                <p className="text-muted-foreground">12,000+ happy crafters</p>
-              </div>
-            </div>
+
           </div>
 
           {/* Visual column */}

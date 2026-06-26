@@ -1,11 +1,13 @@
 import { ArrowRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { ShapeSquiggle } from "@/components/ui/shapes";
+import Image from "next/image";
 
 type MlProject = {
   title: string;
   description: string;
   tag: string;
+  previewImage: string;
   /** Tailwind gradient classes standing in for a project preview image. */
   previewClassName: string;
   href: string;
@@ -17,6 +19,7 @@ const ML_PROJECTS: MlProject[] = [
     description:
       "A deployed ML service that scans group expenses in real time and flags irregular transactions, helping catch mistakes and fraud before they slip through.",
     tag: "Python · ML Service",
+    previewImage: "/Images/ead.png",
     previewClassName:
       "bg-gradient-to-br from-accent/30 via-card to-quaternary/20",
     href: "https://github.com/parag0811/expense-anomaly-ml-service",
@@ -26,6 +29,7 @@ const ML_PROJECTS: MlProject[] = [
     description:
       "A model that learns from past transaction behavior to predict the chance a settlement will be delayed, giving group expense apps an early warning system for unreliable payers.",
     tag: "Jupyter Notebook · ML Model",
+    previewImage: "/Images/srp.png",
     previewClassName:
       "bg-gradient-to-br from-secondary/30 via-card to-tertiary/20",
     href: "https://github.com/parag0811/Settlement-risk-predictor",
@@ -35,6 +39,7 @@ const ML_PROJECTS: MlProject[] = [
     description:
       "The ML layer inside Planex that scores planning and architecture decisions for risk, surfacing potential bottlenecks before a team commits to a design.",
     tag: "Python · Risk Scoring",
+    previewImage: "/Images/pre.png",
     previewClassName:
       "bg-gradient-to-br from-quaternary/30 via-card to-accent/20",
     href: "https://github.com/parag0811/planex",
@@ -84,11 +89,13 @@ export function MlProjects() {
                   project.previewClassName,
                 ].join(" ")}
               >
-                <div className="flex h-full w-full items-center justify-center">
-                  <span className="text-xl sm:text-2xl font-extrabold text-foreground/30 text-center px-4">
-                    {project.title}
-                  </span>
-                </div>
+                <Image
+                  src={project.previewImage}
+                  alt={`${project.title} screenshot`}
+                  fill
+                  className="object-cover object-top"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                />
 
                 {/* Tag chip, bottom-right, mirrors the date chip in the reference */}
                 <span className="absolute bottom-3 right-3 rounded-full border-2 border-foreground bg-card px-3 py-1 text-xs font-bold">

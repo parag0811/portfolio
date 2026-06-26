@@ -7,10 +7,10 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
 const NAV_LINKS = [
-  { href: "/", label: "Home" },
+  { href: "#hero", label: "Home" },
   { href: "#skills", label: "Skills" },
   { href: "#projects", label: "Projects" },
-  { href: "/about", label: "About" },
+  { href: "#currently", label: "Currently" },
   { href: "/contact", label: "Contact" },
 ];
 
