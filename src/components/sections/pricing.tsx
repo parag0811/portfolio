@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { Check, Star } from "lucide-react";
 import { SectionHeading } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -59,9 +60,13 @@ export function Pricing() {
         />
 
         <div className="mt-16 grid gap-10 lg:grid-cols-3 lg:gap-8 items-center">
-          {PLANS.map((plan) => (
-            <div
+          {PLANS.map((plan, index) => (
+            <motion.div
               key={plan.name}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
               className={[
                 "relative bg-card border-2 border-foreground rounded-[var(--radius-lg)] p-8",
                 plan.featured
@@ -109,7 +114,7 @@ export function Pricing() {
               >
                 Choose {plan.name}
               </Button>
-            </div>
+            </motion.div>
           ))}
         </div>
 

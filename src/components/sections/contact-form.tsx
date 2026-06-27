@@ -12,6 +12,8 @@ import { Button } from "@/components/ui/button";
  *  - point the <form> at a service like Formspree directly via its
  *    `action` and `method` attributes.
  */
+import { motion } from "framer-motion";
+
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
 
@@ -22,7 +24,11 @@ export function ContactForm() {
 
   if (submitted) {
     return (
-      <div className="border-2 border-foreground rounded-[var(--radius-lg)] bg-quaternary/20 p-8 text-center shadow-[var(--shadow-pop-soft)]">
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        className="border-2 border-foreground rounded-[var(--radius-lg)] bg-quaternary/20 p-8 text-center shadow-[var(--shadow-pop-soft)]"
+      >
         <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full border-2 border-foreground bg-quaternary">
           <CheckCircle2 size={28} strokeWidth={2.5} />
         </div>
@@ -31,12 +37,16 @@ export function ContactForm() {
           Thanks for reaching out — we read every note and reply within one
           business day.
         </p>
-      </div>
+      </motion.div>
     );
   }
 
   return (
-    <form
+    <motion.form
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.5 }}
       onSubmit={handleSubmit}
       className="border-2 border-foreground rounded-[var(--radius-lg)] bg-card p-6 sm:p-8 shadow-[var(--shadow-pop-soft)] space-y-6"
     >
@@ -93,6 +103,6 @@ export function ContactForm() {
       <Button type="submit" withArrow={false} className="w-full sm:w-auto">
         Send message
       </Button>
-    </form>
+    </motion.form>
   );
 }

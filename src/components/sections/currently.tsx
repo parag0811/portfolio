@@ -103,9 +103,7 @@ export function Currently() {
 
           <div className="relative z-10 mt-8 flex flex-col sm:flex-row justify-center gap-4">
             <Button
-              href="https://mail.google.com/mail/?view=cm&to=paragrangankar@gmail.com"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="mailto:paragrangankar@gmail.com"
               withArrow={false}
               className="bg-tertiary text-foreground"
             >

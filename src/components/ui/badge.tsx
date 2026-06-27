@@ -38,6 +38,8 @@ export function Badge({
  * Reusable section heading: eyebrow badge, heading with a squiggle
  * underline, and an optional supporting description.
  */
+import { motion } from "framer-motion";
+
 export function SectionHeading({
   eyebrow,
   eyebrowColor = "accent",
@@ -52,7 +54,13 @@ export function SectionHeading({
   align?: "left" | "center";
 }) {
   return (
-    <div className={align === "center" ? "text-center mx-auto max-w-2xl" : "max-w-2xl"}>
+    <motion.div 
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.5 }}
+      className={align === "center" ? "text-center mx-auto max-w-2xl" : "max-w-2xl"}
+    >
       {eyebrow && (
         <Badge color={eyebrowColor} className="mb-4">
           {eyebrow}
@@ -69,6 +77,6 @@ export function SectionHeading({
           {description}
         </p>
       )}
-    </div>
+    </motion.div>
   );
 }
