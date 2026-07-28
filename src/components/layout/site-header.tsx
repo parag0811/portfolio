@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 const NAV_LINKS = [
   { href: "#hero", label: "Home" },
   { href: "#skills", label: "Skills" },
+  { href: "#experience", label: "Experience" },
   { href: "#projects", label: "Projects" },
   { href: "#currently", label: "Currently" },
   { href: "https://github.com/parag0811", label: "GitHub", isExternal: true },

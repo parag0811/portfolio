@@ -114,7 +114,7 @@ export function Currently() {
             </Button>
 
             <a
-              href="/parag_rangankar_cv.pdf"
+              href="/Parag_Rangankar_Resume.pdf"
               download
               className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-foreground bg-card px-6 py-3 font-bold text-foreground hover:bg-tertiary transition-colors focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-ring/40"
             >
