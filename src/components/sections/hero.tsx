@@ -4,6 +4,7 @@ import { Sparkles } from "lucide-react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { EmailButton } from "@/components/ui/email-button";
 import {
   ShapeCircle,
   ShapeSquare,
@@ -53,9 +54,7 @@ export function Hero() {
 
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <Button href="#projects">View My Work</Button>
-              <Button href="https://mail.google.com/mail/?view=cm&to=paragrangankar@gmail.com" target="_blank" rel="noopener noreferrer" variant="secondary" withArrow={false}>
-                Get In Touch
-              </Button>
+              <EmailButton label="Get In Touch" variant="secondary" />
             </div>
 
             <div className="mt-6 flex items-center gap-3">

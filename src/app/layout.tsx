@@ -3,6 +3,7 @@ import { Outfit, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
+import { ToastProvider } from "@/components/ui/toast";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -33,9 +34,11 @@ export default function RootLayout({
       className={`${outfit.variable} ${jakarta.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
-        <SiteHeader />
-        <main className="flex-1">{children}</main>
-        <SiteFooter />
+        <ToastProvider>
+          <SiteHeader />
+          <main className="flex-1">{children}</main>
+          <SiteFooter />
+        </ToastProvider>
       </body>
     </html>
   );

@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Plus, Download, Mail } from "lucide-react";
 import { SectionHeading } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { EmailButton } from "@/components/ui/email-button";
 import { motion } from "framer-motion";
 
 const CURRENTLY = [
@@ -102,16 +103,7 @@ export function Currently() {
           </p>
 
           <div className="relative z-10 mt-8 flex flex-col sm:flex-row justify-center gap-4">
-            <Button
-              href="mailto:paragrangankar@gmail.com"
-              withArrow={false}
-              className="bg-tertiary text-foreground"
-            >
-              <span className="flex items-center gap-2">
-                <Mail size={18} strokeWidth={2.5} />
-                Get In Touch
-              </span>
-            </Button>
+            <EmailButton label="Get In Touch" variant="tertiary" />
 
             <a
               href="/Parag_Rangankar_Resume.pdf"

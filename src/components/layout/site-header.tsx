@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { EmailButton } from "@/components/ui/email-button";
 
 const NAV_LINKS = [
   { href: "#hero", label: "Home" },
@@ -63,9 +64,7 @@ export function SiteHeader() {
         </nav>
 
         <div className="hidden md:block">
-          <Button href="https://mail.google.com/mail/?view=cm&to=paragrangankar@gmail.com" target="_blank" rel="noopener noreferrer" withArrow={false}>
-            Hire Me!!!
-          </Button>
+          <EmailButton label="Hire Me!!!" variant="primary" />
         </div>
 
         {/* Mobile toggle */}
@@ -110,9 +109,7 @@ export function SiteHeader() {
               </Link>
             )
           )}
-          <Button href="https://mail.google.com/mail/?view=cm&to=paragrangankar@gmail.com" target="_blank" rel="noopener noreferrer" withArrow={false} className="mt-2 w-full">
-            Hire Me!!!
-          </Button>
+          <EmailButton label="Hire Me!!!" variant="primary" className="mt-2 w-full" />
         </nav>
       )}
     </header>
