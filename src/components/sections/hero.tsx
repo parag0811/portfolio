@@ -6,7 +6,6 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { EmailButton } from "@/components/ui/email-button";
 import {
-  ShapeCircle,
   ShapeSquare,
   ShapeTriangle,
 } from "@/components/ui/shapes";
@@ -46,7 +45,7 @@ export function Hero() {
             </h1>
 
             <p className="mt-6 text-lg text-muted-foreground max-w-lg">
-              I'm a Full Stack Developer focused on creating scalable web
+              I&apos;m a Full Stack Developer focused on creating scalable web
               applications, modern user experiences, and developer-friendly
               systems. I enjoy turning ideas into polished products using React,
               Next.js, Node.js, and cloud technologies.

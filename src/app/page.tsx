@@ -4,7 +4,6 @@ import { Features } from "@/components/sections/skills";
 import { Experience } from "@/components/sections/experience";
 import { Projects } from "@/components/sections/projects";
 import { MlProjects } from "@/components/sections/ml-projects";
-import { Pricing } from "@/components/sections/pricing";
 import { Currently } from "@/components/sections/currently";
 
 export default function HomePage() {

@@ -2,7 +2,7 @@
 
 import { createContext, useContext, useState, ReactNode } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Check, X, Mail } from "lucide-react";
+import { Check, X } from "lucide-react";
 
 type ToastContextType = {
   showToast: (message: string, description?: string) => void;
