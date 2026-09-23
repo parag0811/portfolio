@@ -24,9 +24,9 @@ const EXPERIENCES: ExperienceItem[] = [
     location: "Remote",
     type: "Internship",
     highlights: [
-      "Collaborated with the development team to build a full-stack web application for a coffee beans business using Next.js, Express.js, Prisma, and PostgreSQL, delivering a responsive storefront backed by REST APIs.",
-      "Implemented authentication, relational database schemas, and Redis-based caching for high-traffic endpoints, improving average API response time by 35%.",
-      "Containerized services with Docker within a microservices architecture and collaborated directly with stakeholders to scope and ship features against business requirements.",
+      "Integrated the Next.js frontend with backend REST APIs (Express.js, Prisma, PostgreSQL) for the storefront, ensuring smooth data flow between both layers.",
+      "Participated in code reviews, giving and receiving feedback on code quality, structure, and adherence to best practices throughout the sprint cycle.",
+      "Containerized backend services with Docker, ensuring consistent environments across local development, testing, and deployment stages.",
     ],
     techStack: [
       "Next.js",
@@ -36,7 +36,6 @@ const EXPERIENCES: ExperienceItem[] = [
       "Redis",
       "Docker",
       "REST APIs",
-      "Microservices",
     ],
     color: "tertiary",
     shadowColor: "shadow-[8px_8px_0px_0px_var(--tertiary)]",

@@ -1,6 +1,6 @@
 "use client";
 
-import { Monitor, Server, Cloud, Brain, GraduationCap, LucideIcon } from "lucide-react";
+import { Monitor, Server, Cloud, GraduationCap, LucideIcon } from "lucide-react";
 import { SectionHeading } from "@/components/ui/badge";
 import { CardIcon, StickerCard } from "@/components/ui/sticker-card";
 import { motion } from "framer-motion";
@@ -18,11 +18,12 @@ const SKILLS: SkillCard[] = [
     color: "accent" as const,
     title: "Frontend",
     skills: [
-      "React",
+      "React.js",
       "Next.js",
-      "JavaScript",
-      "TypeScript",
+      "Redux",
       "Tailwind CSS",
+      "Framer Motion",
+      "Responsive Design",
       "HTML",
       "CSS",
     ],
@@ -34,28 +35,35 @@ const SKILLS: SkillCard[] = [
     skills: [
       "Node.js",
       "Express.js",
-      "MongoDB",
       "REST APIs",
-      "JWT",
-      "Authentication",
+      "WebSockets",
+      "Microservices",
+      "JWT Auth",
+      "BullMQ",
+      "Zod",
     ],
   },
   {
     icon: Cloud,
     color: "tertiary" as const,
-    title: "DevOps & Tools",
-    skills: ["Git", "GitHub", "Docker", "AWS S3", "Postman", "Linux"],
+    title: "Cloud & DevOps",
+    skills: [
+      "Docker",
+      "CI/CD",
+      "AWS (S3)",
+      "Git",
+      "GitHub",
+      "Unit Testing",
+    ],
   },
   {
     icon: GraduationCap,
     color: "quaternary",
-    title: "CS Fundamentals",
+    title: "Core CS",
     skills: [
-      "DSA",
-      "Operating System",
-      "DBMS",
-      "Computer Networks",
+      "Data Structures & Algorithms",
       "System Design",
+      "OOP",
     ],
   },
 ];
