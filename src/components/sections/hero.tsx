@@ -1,6 +1,6 @@
 "use client";
 
-import { Sparkles } from "lucide-react";
+import { Sparkles, FileText } from "lucide-react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -53,6 +53,15 @@ export function Hero() {
 
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <Button href="#projects">View My Work</Button>
+              <a
+                href="/Parag_Rangankar_Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border-2 border-foreground bg-card px-5 py-3 text-sm font-bold shadow-[var(--shadow-pop)] transition-all duration-300 ease-[var(--ease-bounce)] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:bg-tertiary hover:shadow-[var(--shadow-pop-hover)] active:translate-x-0.5 active:translate-y-0.5 active:shadow-[var(--shadow-pop-active)] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-ring/40"
+              >
+                <FileText size={16} strokeWidth={2.5} />
+                Resume
+              </a>
               <EmailButton label="Get In Touch" variant="secondary" />
             </div>
 

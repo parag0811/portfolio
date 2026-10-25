@@ -1,19 +1,19 @@
 const KEYWORDS = [
-  "React",
-  "TypeScript",
-  "JavaScript",
-  "C++",
+  "AI Agents",
+  "LLMs",
+  "pgvector",
   "Next.js",
+  "TypeScript",
+  "React",
   "Node.js",
-  "Express.js",
+  "PostgreSQL",
+  "Redis",
   "Tailwind",
-  "MongoDB",
-  "MySQL",
-  "PostgresSQL",
-  "AWS",
+  "tRPC",
   "Docker",
+  "AWS",
   "CI/CD",
-  "Cloud"
+  "C++"
 ];
 
 export function Marquee() {

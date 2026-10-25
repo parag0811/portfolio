@@ -12,6 +12,7 @@ const NAV_LINKS = [
   { href: "#experience", label: "Experience" },
   { href: "#projects", label: "Projects" },
   { href: "#currently", label: "Currently" },
+  { href: "/Parag_Rangankar_Resume.pdf", label: "Resume", isExternal: true },
   { href: "https://github.com/parag0811", label: "GitHub", isExternal: true },
   { href: "https://www.linkedin.com/in/parag0811/", label: "LinkedIn", isExternal: true },
 ];

@@ -27,7 +27,7 @@ const PROJECTS: Project[] = [
     previewImage: "/Images/planex.png",
     previewClassName:
       "bg-gradient-to-br from-accent/30 via-card to-secondary/20",
-    liveUrl: "#",
+    liveUrl: "https://planex-one.vercel.app",
     githubUrl: "https://github.com/parag0811/planex",
     shadowColor: "accent",
   },
