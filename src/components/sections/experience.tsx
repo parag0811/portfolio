@@ -9,8 +9,6 @@ import {
   Building2,
   Bot,
   Coffee,
-  Sparkles,
-  ExternalLink,
 } from "lucide-react";
 import { SectionHeading, Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
@@ -38,7 +36,7 @@ const EXPERIENCES: ExperienceItem[] = [
   {
     company: "Remii",
     subCompany: "Product of SeaSurf Technologies",
-    role: "AI Full Stack Developer",
+    role: "AI Full Stack Developer (Part-Time)",
     period: "Aug 2026 – Present",
     duration: "3 mos",
     location: "Jaipur, Rajasthan, India",
@@ -83,7 +81,6 @@ const EXPERIENCES: ExperienceItem[] = [
       "Owned auth and payments: implemented custom auth with jose JWTs, bcryptjs password hashing, secure HttpOnly cookies, and customer/admin role guards.",
       "Engineered end-to-end Razorpay checkout with server-side price and tax validation plus idempotent webhook handlers deduplicating events by SHA-256 signatures.",
       "Added stock reservation with a scheduled cron job releasing expired holds, eliminating race conditions where concurrent buyers could purchase the last unit.",
-      "Built a resilient transactional email outbox pattern with exponential retries, ensuring order confirmations reliably survive external provider failures.",
       "Delivered production-ready code through weekly code reviews and maintained consistent, reliable development and testing environments.",
     ],
     techStack: [
@@ -127,8 +124,6 @@ export function Experience() {
 
           <div className="space-y-12 sm:space-y-16">
             {EXPERIENCES.map((exp, index) => {
-              const isEven = index % 2 === 0;
-
               return (
                 <motion.div
                   key={`${exp.company}-${exp.role}`}
@@ -205,9 +200,9 @@ export function Experience() {
                           </Badge>
 
                           {exp.isCurrent && (
-                            <span className="inline-flex items-center gap-1.5 rounded-full border-2 border-foreground bg-quaternary/20 px-2.5 py-0.5 text-xs font-bold text-foreground animate-pulse">
-                              <span className="h-2 w-2 rounded-full bg-emerald-500" />
-                              Active Role
+                            <span className="inline-flex items-center gap-1.5 rounded-full border-2 border-foreground bg-quaternary/20 px-2.5 py-0.5 text-xs font-bold text-foreground">
+                              <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+                              Part-Time · Seeking AI &amp; Full-Time Roles
                             </span>
                           )}
                         </div>
