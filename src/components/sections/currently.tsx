@@ -11,7 +11,7 @@ const CURRENTLY = [
     question: "Current Status: Part-Time AI Developer @ Remii",
     tag: "Part-Time · Available for Full-Time",
     answer:
-      "I am currently working part-time at Remii (SeaSurf Technologies), engineering autonomous background AI agents, multi-turn session hydration, and tRPC dashboards. Since this is a part-time engagement, I have full bandwidth and am actively seeking a permanent full-time AI Engineering, Backend, or Full-Stack role (or internship with PPO).",
+      "I am currently working part-time at Remii (SeaSurf Technologies), engineering autonomous background AI agents, multi-turn session hydration, and REST API dashboards. Since this is a part-time engagement, I have full bandwidth and am actively seeking a permanent full-time AI Engineering, Backend, or Full-Stack role (or internship with PPO).",
   },
   {
     question: "Primary Goal: Seeking Full-Time AI & SWE Roles (or PPO Internships)",

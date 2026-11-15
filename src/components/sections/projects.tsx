@@ -4,34 +4,19 @@ import {
   ExternalLink,
   Code2,
   Wrench,
-  Layers,
-  Sparkles,
   Lock,
-  Zap,
-  Bot,
-  Users,
-  Radio,
-  Clock,
-  LucideIcon,
+  CheckCircle2,
 } from "lucide-react";
 import { SectionHeading, Badge } from "@/components/ui/badge";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-type ArchitectureFeat = {
-  icon: LucideIcon;
-  title: string;
-  detail: string;
-};
-
 type Project = {
   id: string;
   number: string;
   name: string;
-  tagline: string;
   category: string;
-  description: string;
-  architectureFeats: ArchitectureFeat[];
+  highlights: string[];
   techStack: string[];
   previewImage: string;
   previewUrl: string;
@@ -46,26 +31,11 @@ const PROJECTS: Project[] = [
     id: "planex",
     number: "01",
     name: "Planex",
-    tagline: "AI-Powered Architecture & Schema Generation Pipeline",
-    category: "Full-Stack · LLM Pipeline · Queues",
-    description:
-      "An AI planning tool that takes an idea and generates complete software requirements, database schemas, API specs, and folder structures using a 4-stage LLM pipeline.",
-    architectureFeats: [
-      {
-        icon: Sparkles,
-        title: "4-Stage LLM Pipeline",
-        detail: "Groq & Gemini generate requirements, DB schema, and API specs, strictly validated with Zod.",
-      },
-      {
-        icon: Layers,
-        title: "BullMQ Background Workers",
-        detail: "Jobs run in BullMQ workers so the API returns a job ID in 33ms instead of blocking for 10.7s.",
-      },
-      {
-        icon: Clock,
-        title: "Two-Tier Redis Cache",
-        detail: "Cached plans return in 29ms vs 10.7s cold — roughly 360x faster for repeated requests.",
-      },
+    category: "Full-Stack · LLM Pipeline",
+    highlights: [
+      "Built a 4-stage LLM pipeline (Groq, Gemini) for requirements, DB schema, API spec and folders; Zod-validated.",
+      "Moved generation into BullMQ workers; the API returns a job ID in 33ms instead of blocking 10.7s on the LLM call.",
+      "Added a two-tier Redis cache; hits return in 29ms vs 10.7s cold, about 360x faster (p50).",
     ],
     techStack: [
       "Next.js",
@@ -89,26 +59,11 @@ const PROJECTS: Project[] = [
     id: "quick-split",
     number: "02",
     name: "Quick Split",
-    tagline: "Group Expense Manager with Groq Natural Language Splits",
-    category: "Full-Stack · Groq AI · WebSockets",
-    description:
-      "A real-time group expense splitting app. Instead of doing manual math, users explain the expense in natural language and Groq AI automatically figures out the split percentages for each person.",
-    architectureFeats: [
-      {
-        icon: Bot,
-        title: "Groq AI Natural Language Splitting",
-        detail: "Users describe the situation in plain words; Groq parses the context and fills out the exact split amounts.",
-      },
-      {
-        icon: Radio,
-        title: "Live WebSockets Room Sync",
-        detail: "Members join expense rooms via NextAuth and balances update live on all screens over WebSockets.",
-      },
-      {
-        icon: Zap,
-        title: "FastAPI ML Services",
-        detail: "Served anomaly detection (AUC 0.71) and settlement risk (AUC 0.69) models via a Python FastAPI service.",
-      },
+    category: "Full-Stack · WebSockets · AI",
+    highlights: [
+      "Built a real-time expense-splitting app: members join rooms via NextAuth and balances update live over WebSockets.",
+      "Used Groq to turn plain-language messages into expense splits via a REST endpoint with flexible split modes.",
+      "Served anomaly detection (AUC 0.71) and settlement risk (AUC 0.69) models via FastAPI, both k-fold validated.",
     ],
     techStack: [
       "Next.js",
@@ -130,26 +85,11 @@ const PROJECTS: Project[] = [
     id: "campus-vibe",
     number: "03",
     name: "Campus Vibe",
-    tagline: "Centralized Campus Event Discovery & RSVP Platform",
-    category: "Full-Stack · Cloud Storage · Email",
-    description:
-      "A centralized college event platform. Students browse and RSVP to campus events in one place, while organizers publish listings, manage rosters, and send automated email confirmations.",
-    architectureFeats: [
-      {
-        icon: Users,
-        title: "Student Discovery & Organizer Portal",
-        detail: "Separate workflows for students to explore/RSVP and organizers to publish and track attendee lists.",
-      },
-      {
-        icon: Zap,
-        title: "Automated Brevo Email Tickets",
-        detail: "Automatically triggers dynamic RSVP confirmation emails and event reminder updates via Brevo.",
-      },
-      {
-        icon: Layers,
-        title: "AWS S3 Poster Uploads",
-        detail: "Secure image upload pipeline using AWS S3 pre-signed URLs for high-resolution event banners.",
-      },
+    category: "Full-Stack · Cloud Storage",
+    highlights: [
+      "Built a centralized college event platform with student RSVPs and organizer publishing dashboards.",
+      "Integrated Brevo API to automate dynamic RSVP confirmation emails and event notifications.",
+      "Built a secure image upload pipeline using AWS S3 pre-signed URLs for event posters.",
     ],
     techStack: [
       "Next.js",
@@ -180,7 +120,7 @@ export function Projects() {
           eyebrow="My Work"
           eyebrowColor="secondary"
           title="Featured Projects"
-          description="Full-stack web applications and AI-integrated pipelines I've built and deployed."
+          description="Production-grade full-stack platforms and AI-powered systems I've built and deployed."
         />
 
         {/* Quick jump navigation pills */}
@@ -197,8 +137,8 @@ export function Projects() {
           ))}
         </div>
 
-        {/* Compact Individual Project Sections */}
-        <div className="mt-10 space-y-8 sm:space-y-12">
+        {/* Streamlined Project Sections */}
+        <div className="mt-10 space-y-8 sm:space-y-10">
           {PROJECTS.map((project, index) => {
             const isReversed = index % 2 === 1;
 
@@ -271,7 +211,7 @@ export function Projects() {
                       isReversed ? "lg:order-1" : "lg:order-2",
                     ].join(" ")}
                   >
-                    {/* Header: Number + Category */}
+                    {/* Header: Number + Category + Status */}
                     <div className="flex items-center gap-2 flex-wrap">
                       <span className="font-mono text-xs font-extrabold text-muted-foreground">
                         {project.number}
@@ -285,42 +225,27 @@ export function Projects() {
                       </span>
                     </div>
 
-                    {/* Title & Tagline */}
-                    <div className="mt-2">
-                      <h3 className="text-xl sm:text-2xl font-extrabold tracking-tight text-foreground">
-                        {project.name}
-                      </h3>
-                      <p className="text-xs sm:text-sm font-bold text-accent">
-                        {project.tagline}
-                      </p>
-                    </div>
+                    {/* Title */}
+                    <h3 className="mt-2 text-2xl font-extrabold tracking-tight text-foreground">
+                      {project.name}
+                    </h3>
 
-                    {/* Concise Narrative */}
-                    <p className="mt-2 text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                      {project.description}
-                    </p>
-
-                    {/* Real Architecture Feats */}
-                    <div className="mt-3 space-y-1.5 rounded-lg border border-foreground/15 bg-muted/40 p-2.5">
-                      {project.architectureFeats.map((feat) => {
-                        const Icon = feat.icon;
-                        return (
-                          <div
-                            key={feat.title}
-                            className="flex items-start gap-2 text-xs text-foreground/90 font-medium"
-                          >
-                            <Icon size={12} className="text-accent shrink-0 mt-0.5" strokeWidth={2.4} />
-                            <div>
-                              <strong className="text-foreground">{feat.title}: </strong>
-                              <span className="text-muted-foreground">{feat.detail}</span>
-                            </div>
-                          </div>
-                        );
-                      })}
-                    </div>
+                    {/* Resume Bullet Points */}
+                    <ul className="mt-3 space-y-2 text-xs sm:text-sm text-foreground/90 font-medium leading-relaxed">
+                      {project.highlights.map((bullet, i) => (
+                        <li key={i} className="flex items-start gap-2">
+                          <CheckCircle2
+                            size={14}
+                            className="text-accent shrink-0 mt-0.5"
+                            strokeWidth={2.4}
+                          />
+                          <span>{bullet}</span>
+                        </li>
+                      ))}
+                    </ul>
 
                     {/* Tech Stack */}
-                    <div className="mt-3 flex flex-wrap items-center gap-1.5">
+                    <div className="mt-3.5 flex flex-wrap items-center gap-1.5">
                       <Wrench size={12} strokeWidth={2.4} className="text-muted-foreground mr-1" />
                       {project.techStack.map((tech) => (
                         <span

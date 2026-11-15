@@ -27,11 +27,12 @@ const SKILLS: SkillCard[] = [
     title: "AI & Agents",
     skills: [
       "AI Agents",
-      "LLMs",
+      "LLMs (Groq, Gemini)",
       "pgvector",
       "Composio",
       "Prompt Engineering",
       "RAG",
+      "MCP",
     ],
     colSpanClass: "sm:col-span-1 lg:col-span-2",
   },
@@ -40,14 +41,13 @@ const SKILLS: SkillCard[] = [
     color: "secondary",
     title: "Frontend",
     skills: [
-      "React.js",
-      "Next.js",
       "TypeScript",
+      "JavaScript",
+      "React",
+      "Next.js",
       "Tailwind CSS",
-      "Framer Motion",
-      "Responsive Design",
-      "HTML5",
-      "CSS3",
+      "Redux",
+      "HTML / CSS",
     ],
     colSpanClass: "sm:col-span-1 lg:col-span-2",
   },
@@ -59,26 +59,27 @@ const SKILLS: SkillCard[] = [
       "Node.js",
       "Express.js",
       "tRPC",
+      "FastAPI",
       "PostgreSQL",
-      "Prisma",
+      "MongoDB",
       "Redis",
-      "REST APIs",
-      "WebSockets",
       "BullMQ",
+      "WebSockets",
     ],
     colSpanClass: "sm:col-span-1 lg:col-span-2",
   },
   {
     icon: Cloud,
     color: "quaternary",
-    title: "Cloud & DevOps",
+    title: "Cloud & Tools",
     skills: [
+      "AWS (S3)",
       "Docker",
       "CI/CD",
-      "AWS (S3)",
       "Git & GitHub",
-      "Unit Testing",
-      "Linux",
+      "Prisma ORM",
+      "Zod",
+      "REST APIs",
     ],
     colSpanClass: "sm:col-span-1 lg:col-span-3",
   },
@@ -101,36 +102,36 @@ export function Features() {
   return (
     <section
       id="skills"
-      className="relative border-b-2 border-foreground py-20 sm:py-24"
+      className="relative border-b-2 border-foreground py-16 sm:py-20"
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <SectionHeading
           eyebrow="Tech Stack"
           eyebrowColor="quaternary"
           title="Tools I use to build products"
-          description="From autonomous AI agents and vector retrieval to full-stack web platforms and backend distributed systems."
+          description="Technologies and frameworks I use to engineer full-stack systems and autonomous AI agents."
         />
 
-        <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-6 cursor-pointer">
+        <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-6">
           {SKILLS.map((skill, i) => (
             <motion.div
               key={skill.title}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.4, delay: i * 0.08 }}
               className={skill.colSpanClass}
             >
-              <StickerCard className="h-full pt-10">
+              <StickerCard className="h-full pt-9">
                 <CardIcon icon={skill.icon} color={skill.color} />
 
-                <h3 className="text-xl font-extrabold">{skill.title}</h3>
+                <h3 className="text-lg font-extrabold text-foreground">{skill.title}</h3>
 
-                <div className="mt-4 flex flex-wrap gap-2">
+                <div className="mt-3.5 flex flex-wrap gap-1.5">
                   {skill.skills.map((item) => (
                     <span
                       key={item}
-                      className="rounded-full border-2 border-foreground px-3 py-1 text-sm font-bold bg-muted/60 hover:bg-tertiary transition-colors"
+                      className="rounded-full border border-foreground/25 bg-muted/80 px-2.5 py-0.5 text-xs font-bold text-foreground transition-all duration-200 hover:border-foreground hover:bg-tertiary hover:-translate-y-0.5 hover:shadow-[2px_2px_0px_0px_var(--foreground)]"
                     >
                       {item}
                     </span>

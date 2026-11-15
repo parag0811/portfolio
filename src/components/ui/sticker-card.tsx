@@ -10,23 +10,24 @@ type StickerCardProps = {
 };
 
 const shadowMap: Record<CardShadow, string> = {
-  soft: "shadow-[var(--shadow-pop-soft)]",
+  soft: "shadow-[var(--shadow-pop)]",
   pink: "shadow-[var(--shadow-pop-pink)]",
   none: "",
 };
 
 /**
- * The "Sticker" card: white surface, chunky dark border, hard offset
- * shadow, and a subtle wiggle + lift on hover.
+ * Clean Neo-Brutalist Sticker Card:
+ * Smooth vertical lift with crisp pop shadow on hover, no tilt.
  */
 export function StickerCard({ children, shadow = "soft", className = "" }: StickerCardProps) {
   return (
     <div
       className={[
-        "relative bg-card border-2 border-foreground rounded-[var(--radius-lg)] p-6 sm:p-8",
+        "group relative bg-card border-2 border-foreground rounded-[var(--radius-lg)] p-6 sm:p-7",
         shadowMap[shadow],
         "transition-all duration-300 ease-[var(--ease-bounce)]",
-        "hover:-rotate-1 hover:scale-[1.02]",
+        "hover:-translate-y-1.5 hover:shadow-[6px_6px_0px_0px_var(--foreground)]",
+        "active:translate-y-0 active:shadow-[2px_2px_0px_0px_var(--foreground)]",
         className,
       ].join(" ")}
     >
@@ -49,19 +50,20 @@ const colorMap: Record<Required<CardIconProps>["color"], string> = {
 };
 
 /**
- * Floating icon badge that sits half-in / half-out of the card's top
- * border, per the design system's "icon enclosed in a shape" rule.
+ * Floating icon badge that sits half-in / half-out of the card's top border.
+ * Gently scales up on card hover without continuous wiggling.
  */
 export function CardIcon({ icon: Icon, color = "accent" }: CardIconProps) {
   return (
     <div
       className={[
-        "absolute -top-6 left-6 flex h-12 w-12 items-center justify-center",
-        "rounded-full border-2 border-foreground animate-wiggle",
+        "absolute -top-5 left-6 flex h-11 w-11 items-center justify-center",
+        "rounded-full border-2 border-foreground shadow-[2px_2px_0px_0px_var(--foreground)]",
+        "transition-transform duration-300 ease-[var(--ease-bounce)] group-hover:scale-115 group-hover:-translate-y-0.5",
         colorMap[color],
       ].join(" ")}
     >
-      <Icon size={22} strokeWidth={2.5} />
+      <Icon size={20} strokeWidth={2.4} />
     </div>
   );
 }
